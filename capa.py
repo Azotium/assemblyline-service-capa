@@ -27,7 +27,7 @@ class Capa(ServiceBase):
         file = request.file_path
 
         p1 = subprocess.run(
-            "/opt/capa -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs -vv " + file,
+            "/opt/capa -vv -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
             capture_output=True, text=True, shell=True, check=True).stdout
 
         # p1 = subprocess.run(
