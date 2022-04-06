@@ -10,11 +10,13 @@ ENV SERVICE_PATH capa.Capa
 
 USER root
 
-RUN apt update
-RUN apt-get install -y git curl
-RUN apt install -y python3-pip
-RUN apt install -y unzip
-RUN 'curl -s https://api.github.com/repos/mandiant/capa/releases/latest | grep https.*capa.*linux.zip | cut -d : -f 2,3 | tr -d \" | wget -qi - -O capa.zip'
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    python3-pip  \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+RUN 'curl -s https://api.github.com/repos/mandiant/capa/releases/latest | grep https.*capa.*linux.zip | cut -d : -f 2,3 | tr -d \" | wget -qi - -O capa.zip' 
 RUN unzip capa.zip -d /opt
 
 WORKDIR /opt/al_service
