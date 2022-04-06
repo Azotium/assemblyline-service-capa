@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     python3-pip  \
     unzip \
+    utils \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 RUN curl -s https://api.github.com/repos/mandiant/capa/releases/latest | grep https.*capa.*linux.zip | cut -d : -f 2,3 | tr -d \" | wget -qi - -O capa.zip
 RUN unzip capa.zip -d /opt
