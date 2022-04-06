@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     python3-pip  \
     unzip \
     && rm -rf /var/lib/apt/lists/*
-CMD 'curl -s https://api.github.com/repos/mandiant/capa/releases/latest | grep https.*capa.*linux.zip | cut -d : -f 2,3 | tr -d \" | wget -qi - -O capa.zip'
+RUN curl -s https://api.github.com/repos/mandiant/capa/releases/latest | grep https.*capa.*linux.zip | cut -d : -f 2,3 | tr -d \" | wget -qi - -O capa.zip
 RUN unzip capa.zip -d /opt
 
 WORKDIR /opt/al_service
