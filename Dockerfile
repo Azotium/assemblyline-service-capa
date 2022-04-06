@@ -13,7 +13,9 @@ USER root
 RUN apt update
 RUN apt-get install -y git
 RUN apt install -y python3-pip
-RUN pip install flare-capa
+RUN curl -s https://api.github.com/repos/mandiant/capa/releases/latest | grep https.*capa.*linux.zip | cut -d : -f 2,3 | tr -d \" | wget -qi - -O capa.zip
+RUN unzip capa.zip
+COPY ./capa /opt/
 
 WORKDIR /opt/al_service
 
