@@ -25,14 +25,20 @@ class Capa(ServiceBase):
         # 1. Create a result object where all the result sections will be saved to
         result = Result()
         file = request.file_path
+        
+        # ==================================================================
+        # CAPA Execution with capa-rules repository - Commented because of a rule generating an error.
+        # ==================================================================
+        #p1 = subprocess.run(
+        #    "/opt/capa -vv -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
+        #    capture_output=True, text=True, shell=True, check=True).stdout
 
+        # ==================================================================
+        # Running CAPA with signature folder only and output as text (non-verbose)
+        # ==================================================================
         p1 = subprocess.run(
-            "/opt/capa -vv -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
+            "/opt/capa -s /opt/al_service/capa/sigs " + file,
             capture_output=True, text=True, shell=True, check=True).stdout
-
-        # p1 = subprocess.run(
-        #     "capa -r /home/infosec/git/capa-rules -s /home/infosec/git/capa/sigs -vv " + file,
-        #     capture_output=True, text=True, shell=True, check=True).stdout
 
         # 2. Create a section to be displayed for this result
         text_section = ResultSection("CAPA Analysis output")
