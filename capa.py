@@ -28,17 +28,18 @@ class Capa(ServiceBase):
         
         # ==================================================================
         # CAPA Execution with capa-rules repository - Commented because of a rule generating an error.
+        # Dockerfile updated to clone capa-rules with tag v3.2.0 which generates no error
         # ==================================================================
-        #p1 = subprocess.run(
-        #    "/opt/capa -vv -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
-        #    capture_output=True, text=True, shell=True, check=True).stdout
+        p1 = subprocess.run(
+            "/opt/capa -vv -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
+            capture_output=True, text=True, shell=True, check=True).stdout
 
         # ==================================================================
         # Running CAPA with signature folder only and output as text (non-verbose)
         # ==================================================================
-        p1 = subprocess.run(
-            "/opt/capa -s /opt/al_service/capa/sigs " + file,
-            capture_output=True, text=True, shell=True, check=True).stdout
+        #p1 = subprocess.run(
+        #    "/opt/capa -s /opt/al_service/capa/sigs " + file,
+        #    capture_output=True, text=True, shell=True, check=True).stdout
 
         # 2. Create a section to be displayed for this result
         text_section = ResultSection("CAPA Analysis output")
