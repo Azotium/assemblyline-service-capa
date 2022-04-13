@@ -30,7 +30,7 @@ class Capa(ServiceBase):
         # CAPA Execution with capa-rules repository - Commented because of a rule generating an error.
         # Dockerfile updated to clone capa-rules with tag v3.2.0 which generates no error
         # ==================================================================
-        p1 = subprocess.run(["capa", "-r", "/home/renaud/git/capa-rules", "-s", "/home/renaud/git/capa/sigs", file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p1 = subprocess.run(["/opt/capa", "-r", "/opt/al_service/capa-rules", "-s", "/opt/al_service/capa/sigs", file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         # ==================================================================
         # Running CAPA with signature folder only and output as text (non-verbose)
