@@ -1,7 +1,7 @@
 # Name of the service
 name: Capa
 # Version of the service
-version: 4.2.0.stable5
+version: 4.2.0.stable6
 # Description of the service
 description: Analyze executable with Flare's CAPA
 
@@ -36,6 +36,6 @@ enabled: true
 #  - the name of the docker container that will be created
 #  - CPU and ram allocation by the container
 docker_config:
-  image: ghcr.io/azotium/assemblyline-service-capa:v4.2.0.stable5
+  image: ghcr.io/azotium/assemblyline-service-capa:v4.2.0.stable6
   cpu_cores: 1.0
   ram_mb: 512
