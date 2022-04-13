@@ -36,6 +36,6 @@ enabled: true
 #  - the name of the docker container that will be created
 #  - CPU and ram allocation by the container
 docker_config:
-  image: ghcr.io/azotium/assemblyline-service-capa:main
+  image: ghcr.io/azotium/assemblyline-service-capa:4.2.0.stable2
   cpu_cores: 1.0
   ram_mb: 512
