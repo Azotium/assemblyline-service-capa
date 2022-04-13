@@ -24,7 +24,8 @@ RUN unzip capa.zip -d /opt
 WORKDIR /opt/al_service
 
 RUN git clone https://github.com/mandiant/capa
-RUN git clone https://github.com/mandiant/capa-rules
+RUN git clone -b v3.2.0 --single-branch https://github.com/mandiant/capa-rules
+#RUN git clone https://github.com/mandiant/capa-rules
 
 # Switch to assemblyline user
 USER assemblyline
