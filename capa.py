@@ -31,7 +31,7 @@ class Capa(ServiceBase):
         # Dockerfile updated to clone capa-rules with tag v3.2.0 which generates no error
         # ==================================================================
         p1 = subprocess.run(
-            "/opt/capa -vv -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
+            "/opt/capa -r /opt/al_service/capa-rules -s /opt/al_service/capa/sigs " + file,
             capture_output=True, text=True, shell=True, check=True).stdout
 
         # ==================================================================
