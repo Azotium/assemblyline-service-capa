@@ -19,7 +19,7 @@ category: Static Analysis
 # If set to false, the service will only have access to the file metadata (e.g. Hashes, size, type, ...)
 file_required: true
 # Maximum execution time the service has before it's considered to be timed out
-timeout: 120
+timeout: 300
 
 # is the service enabled by default
 enabled: true
@@ -38,4 +38,4 @@ enabled: true
 docker_config:
   image: ghcr.io/azotium/assemblyline-service-capa:v4.2.0.stable7
   cpu_cores: 1.0
-  ram_mb: 512
+  ram_mb: 1024
